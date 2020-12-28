@@ -1,0 +1,28 @@
+{% extends 'django_blogs/base.html' %}
+
+{% block content %}
+    <p>Post: <b>{{ post }}</b></p>
+    <p><a href="{% url 'django_blogs:edit_post' post.id %}"><b>Edit post</b></a></p>
+    <p><a href="{% url 'django_blogs:delete_post' post.id %}"><b>Delete post</b></a></p>
+    <p>Date added: {{ post.date_added }}</p>
+    <p>Post text: {{ post.body|linebreaks }}</p>
+    <p>Comments:</p>
+    <ul>
+        {% for comment in comments %}
+            <li>
+                <p>
+                    This comment was posted by 
+                    <a href="{% url 'django_blogs:user_profile' comment.post.owner %}">{{ comment.post.owner }}</a> 
+                        on {{ comment.date_added }}
+                </p>
+                <p>{{ comment.comment_body|linebreaks }}</p>
+                <p><a href="{% url 'django_blogs:edit_comment' comment.id %}">Edit comment</a></p>
+                <p><a href="{% url 'django_blogs:delete_comment' comment.id %}">Delete comment</a></p>
+            </li>
+        {% empty %}
+            <li>There are no comments yet.</li>
+        {% endfor %}
+    </ul>
+
+    <p><a href="{% url 'django_blogs:new_comment' post.id %}">Add a comment</a></p>
+{% endblock content %}

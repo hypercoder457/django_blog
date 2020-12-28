@@ -1,0 +1,28 @@
+{% extends 'django_blogs/base.html' %}
+
+{% block content %}
+    <h1>Username: {{ user.username }}</h1>
+    <p>Posts written by {{ user.username }}:</p>
+    <ul>
+        {% for post in posts %}
+            <li><h3>
+                <a href="{% url 'django_blogs:post' post.id %}">{{ post.title }}</a>
+            </h3></li>
+        {% empty %}
+            <li><h3>This user hasn't written any posts yet.</h3></li>
+        {% endfor %}
+    </ul>
+    <p>This user joined on {{ user.date_joined }}</p>
+    <p>This user was last seen(last logged in) on {{ user.last_login }}</p>
+    {% if user == request.user %}
+        <p><a href="{% url 'django_blogs:edit_profile' user.username %}">Edit your profile</a></p>
+    {% endif %}
+    {% if user.avatar %}
+        <img src="{{ user.avatar.url }}" alt="{{ user.username }}'s avatar" />
+    {% endif %}
+
+    {% if user.bio %}
+        <p>User bio(about this user)</p>
+        <p>{{ user.bio|linebreaks }}</p>
+    {% endif %}
+{% endblock content %}

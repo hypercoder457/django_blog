@@ -1,0 +1,18 @@
+{% extends 'django_blogs/base.html' %}
+
+{% load bootstrap4 %}
+
+{% block page_header %}
+    <h1>Edit your user profile:</h1>
+{% endblock page_header %}
+
+{% block content %}
+    <form method="POST" action="{% url 'django_blogs:edit_profile' user.username %}" class="form"
+        enctype="multipart/form-data">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        {% buttons %}
+            <button name="submit" class="btn btn-primary">Save profile changes</button>
+        {% endbuttons %}
+    </form>
+{% endblock content %}

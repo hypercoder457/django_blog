@@ -1,0 +1,10 @@
+{% extends 'django_blogs/base.html' %}
+
+{% block content %}
+    <form method="POST" class="form">
+        {% csrf_token %}
+        <p><b>Are you sure you want to delete "{{ object }}"? All of the comments on the post will be lost
+        as well as the original post itself!</b></p>
+        <input type="submit" value="Delete post" class="text-danger" />
+    </form>
+{% endblock content %}

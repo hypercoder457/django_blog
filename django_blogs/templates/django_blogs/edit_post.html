@@ -1,0 +1,17 @@
+{% extends 'django_blogs/base.html' %}
+
+{% load bootstrap4 %}
+
+{% block page_header %}
+    <h1>Edit your post below</h1>
+{% endblock page_header %}
+
+{% block content %}
+    <form method="POST" action="{% url 'django_blogs:edit_post' post.id %}">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        {% buttons %}
+        <button name="submit" class="btn btn-primary">Save changes</button>
+        {% endbuttons %}
+    </form>
+{% endblock content %}

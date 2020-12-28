@@ -1,0 +1,110 @@
+{% load bootstrap4 %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <!--Head-->
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1", 
+            shrink-to-fit="no">
+
+        <title>Django blog</title>
+
+        {% bootstrap_css %}
+        {% bootstrap_javascript jquery='full' %}
+    </head>
+    <!--End of head-->
+
+    <!--Main content <body>-->
+
+    <body>
+        <!--Navigation bar-->
+        <nav class="navbar navbar-expand-md navbar-light bg-light mb-4 border">
+            <!--Link to home page-->
+            <a class="navbar-brand" href="{% url 'django_blogs:index' %}">
+                Django blog</a>
+
+            <!--Button to toggle the navbar.-->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!--End-->
+
+            <!--Navbar other content-->
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <!--1st unordered list-->
+
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'django_blogs:new_post' %}">
+                            Create a post</a>
+                    </li>
+                </ul>
+                <!--End of 1st list-->
+
+                <!--
+                    2nd unordered list.
+                    This has a lot of content because we need to define
+                    all the links on the nav bar.
+                -->
+
+                <ul class="navbar-nav mr-auto">
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <span class="navbar-text">Hi, {{ user.username }}!</span>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'users:logout' %}">Log out</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'django_blogs:user_profile' user.username %}">
+                            Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'django_blogs:explore' %}">
+                            Explore</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <span class="navbar-text">Hi! Welcome!</span>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'users:register' %}">
+                            Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'users:login' %}">
+                            Log in</a>
+                    </li>
+                    {% endif %}
+                </ul>
+                <!--End of the 2nd list.-->
+            </div>
+            <!--End of the division element.-->
+        </nav>
+        <!--End of the navigation bar-->
+
+        <!--
+            Main part of the page.
+            This defines blocks where each page
+            can insert it's own content
+        -->
+        <main role="main" class="container">
+            <div class="pb-2 mb-2 border-bottom">
+                {% block page_header %}{% endblock page_header %}
+                <!--header for each page-->
+            </div>
+            <div>
+                {% block content %}{% endblock content %}
+            </div>
+        </main>
+        <!--End of the <main> element-->
+    </body>
+    <!--End of the body-->
+
+</html>
+<!--End of the HTML-->

@@ -1,0 +1,18 @@
+{% extends 'django_blogs/base.html' %}
+
+{% block page_header %}
+    <h4>Explore! View other user's profiles!</h4>
+{% endblock page_header %}
+
+{% block content %}
+    <ul>
+        {% for user in users %}
+            {% if user.avatar %}
+                <img src="{{ user.avatar.url }}" alt=""/>
+            {% endif %}
+            <p>
+                <a href="{% url 'django_blogs:user_profile' user.username %}">{{ user.username }}</a>
+            </p>
+        {% endfor %}
+    </ul>
+{% endblock content %}
