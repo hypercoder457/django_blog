@@ -1,34 +1,36 @@
 {% extends 'django_blogs/base.html' %}
 
+{% load i18n %}
+
 {% block page_header %}
     <div class="jumbotron">
-        <h1 class="display-3">Welcome to the Django blog!</h1>
+        <h1 class="display-3">{% trans "Welcome to the blog!" %}</h1>
 
-        <p class="lead">Make your own blog, and start discussions
-            by:<br>
-            1. Making a post.<br>
-            2. Now users can add, update, and delete comments on your posts!</p>
+        <p class="lead">{% trans "Make your own blog, and start discussions by:" %}
+            <br>
+            {% trans "1. Making a post." %}<br>
+            {% trans "2. Now users can add, update, and delete comments on your posts!" %}</p>
 
         {% if not user.is_authenticated %}
             <a class="btn btn-lg btn-primary" href="{% url 'users:register' %}">
-                Register &raquo;</a>
+                {% trans "Register" %} &raquo;</a>
         {% endif %}
     </div>
 {% endblock page_header %}
 
 {% block content %}
-    <p>Posts:</p>
+    <p>{% trans "Posts:" %}</p>
 
     <ul>
         {% for post in posts %}
             <li><h3>
-                <p><a href="{% url 'django_blogs:post' post.id %}">{{ post.title }}</a></p>
+                <p><a href="{% url 'django_blogs:post' post.id %}">{% trans post.title %}</a></p>
                 <p>
                 Post owner: <a href="{% url 'django_blogs:user_profile' post.owner %}">{{ post.owner }}</a>
                 </p>
             </h3></li>
         {% empty %}
-            <li><h3>There are no posts yet.</h3></li>
+            <li><h3>{% trans "There are no posts yet." %}</h3></li>
         {% endfor %}
     </ul>
 {% endblock content %}

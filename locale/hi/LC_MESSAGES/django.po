@@ -1,0 +1,330 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-01-06 16:33-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\django_blogs\models.py:19
+msgid "Username"
+msgstr "उपयोगकर्ता नाम"
+
+#: .\django_blogs\models.py:23
+msgid "Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only."
+msgstr "आवश्यक है। 150 अक्षर या उससे कम। पत्र, अंक और @ /। / + / - / _ केवल।"
+
+#: .\django_blogs\models.py:26
+#, fuzzy
+#| msgid "That email is already taken."
+msgid "That username is taken."
+msgstr "उस उपयोगकर्ता का नाम लिया गया है।"
+
+#: .\django_blogs\models.py:30
+msgid "Password"
+msgstr ""
+
+#: .\django_blogs\models.py:33
+msgid "First name"
+msgstr "पहला नाम"
+
+#: .\django_blogs\models.py:39
+msgid "Last name"
+msgstr "उपनाम"
+
+#: .\django_blogs\models.py:45
+msgid "Email address"
+msgstr "ईमेल पता"
+
+#: .\django_blogs\models.py:48
+msgid "That email is already taken."
+msgstr "वह विद्युतडाक पता पहले से ही लिया जा चुका है।"
+
+#: .\django_blogs\models.py:50
+msgid "Required. Email addresses must be unique."
+msgstr "आवश्यक है। ईमेल पते अद्वितीय होने चाहिए।"
+
+#: .\django_blogs\models.py:53
+msgid "about me"
+msgstr "मेरे बारे में"
+
+#: .\django_blogs\models.py:63
+msgid "post title"
+msgstr "शीर्षक पोस्ट करें"
+
+#: .\django_blogs\models.py:64
+msgid "post body"
+msgstr "पोस्ट बॉडी"
+
+#: .\django_blogs\models.py:75
+msgid "comment text"
+msgstr "टिप्पणी पाठ"
+
+#: .\django_blogs\templates\django_blogs\base.html:13
+#: .\django_blogs\templates\django_blogs\base.html:27
+msgid "Blog"
+msgstr "ब्लॉग"
+
+#: .\django_blogs\templates\django_blogs\base.html:44
+msgid "Create a post"
+msgstr "एक पोस्ट बनाएँ"
+
+#: .\django_blogs\templates\django_blogs\base.html:58
+msgid "Hi,"
+msgstr "नमस्ते,"
+
+#: .\django_blogs\templates\django_blogs\base.html:61
+msgid "Log out"
+msgstr "लॉग आउट"
+
+#: .\django_blogs\templates\django_blogs\base.html:65
+msgid "Profile"
+msgstr "प्रोफ़ाइल"
+
+#: .\django_blogs\templates\django_blogs\base.html:69
+msgid "Explore"
+msgstr "अन्वेषण करना"
+
+#: .\django_blogs\templates\django_blogs\base.html:73
+msgid "Hi! Welcome!"
+msgstr "नमस्ते! स्वागत हे!"
+
+#: .\django_blogs\templates\django_blogs\base.html:77
+#: .\django_blogs\templates\django_blogs\index.html:16
+#: .\users\templates\registration\register.html:6
+#: .\users\templates\registration\register.html:14
+msgid "Register"
+msgstr "रजिस्टर करें"
+
+#: .\django_blogs\templates\django_blogs\base.html:81
+#: .\users\templates\registration\login.html:14
+msgid "Log in"
+msgstr "लॉग इन करें"
+
+#: .\django_blogs\templates\django_blogs\comment_delete.html:9
+#: .\django_blogs\templates\django_blogs\post.html:22
+msgid "Delete comment"
+msgstr "टिप्पणी हटाएँ"
+
+#: .\django_blogs\templates\django_blogs\edit_comment.html:6
+#: .\django_blogs\templates\django_blogs\post.html:21
+msgid "Edit comment"
+msgstr "टिप्पणी संपादित करें"
+
+#: .\django_blogs\templates\django_blogs\edit_comment.html:10
+#: .\django_blogs\templates\django_blogs\new_comment.html:10
+msgid "You are commenting on"
+msgstr "आप टिप्पणी कर रहे हैं"
+
+#: .\django_blogs\templates\django_blogs\edit_comment.html:15
+#: .\django_blogs\templates\django_blogs\edit_post.html:14
+#: .\django_blogs\templates\django_blogs\edit_profile.html:15
+msgid "Save changes"
+msgstr "परिवर्तनों को सुरक्षित करें"
+
+#: .\django_blogs\templates\django_blogs\edit_post.html:6
+#: .\django_blogs\templates\django_blogs\post.html:7
+msgid "Edit post"
+msgstr "प्रोफ़ाइल संपादित करें"
+
+#: .\django_blogs\templates\django_blogs\edit_profile.html:6
+#: .\django_blogs\templates\django_blogs\user_profile.html:20
+#, fuzzy
+#| msgid "Profile"
+msgid "Edit profile"
+msgstr "प्रोफ़ाइल"
+
+#: .\django_blogs\templates\django_blogs\explore.html:6
+msgid "Explore! View other user's profiles!"
+msgstr "अन्वेषण करना! अन्य उपयोगकर्ता प्रोफ़ाइल देखें!"
+
+#: .\django_blogs\templates\django_blogs\index.html:7
+msgid "Welcome to the blog!"
+msgstr "ब्लॉग पर आपका स्वागत है!"
+
+#: .\django_blogs\templates\django_blogs\index.html:9
+msgid "Make your own blog, and start discussions by:"
+msgstr "अपना खुद का ब्लॉग बनाएं, और चर्चा शुरू करें:"
+
+#: .\django_blogs\templates\django_blogs\index.html:11
+msgid "1. Making a post."
+msgstr "1. एक पद बनाना।"
+
+#: .\django_blogs\templates\django_blogs\index.html:12
+msgid "2. Now users can add, update, and delete comments on your posts!"
+msgstr "2. अब उपयोगकर्ता आपके पोस्ट पर टिप्पणियों को जोड़, अपडेट और हटा सकते हैं!"
+
+#: .\django_blogs\templates\django_blogs\index.html:22
+msgid "Posts:"
+msgstr "पोस्ट:"
+
+#: .\django_blogs\templates\django_blogs\index.html:33
+msgid "There are no posts yet."
+msgstr "अभी तक कोई पद नहीं हैं।"
+
+#: .\django_blogs\templates\django_blogs\new_comment.html:6
+msgid "Add a new comment"
+msgstr "एक नई टिप्पणी जोड़ें"
+
+#: .\django_blogs\templates\django_blogs\new_comment.html:15
+msgid "Add comment"
+msgstr "टिप्पणी जोड़ें"
+
+#: .\django_blogs\templates\django_blogs\new_post.html:6
+msgid "Add a new post"
+msgstr "एक नई पोस्ट जोड़ें"
+
+#: .\django_blogs\templates\django_blogs\new_post.html:14
+msgid "Add post"
+msgstr "पोस्ट जोड़ें"
+
+#: .\django_blogs\templates\django_blogs\post.html:6
+msgid "Post:"
+msgstr "पद:"
+
+#: .\django_blogs\templates\django_blogs\post.html:8
+#: .\django_blogs\templates\django_blogs\post_delete.html:10
+msgid "Delete post"
+msgstr "पोस्ट को हटाएं"
+
+#: .\django_blogs\templates\django_blogs\post.html:9
+msgid "Date added:"
+msgstr "तारीख संकलित हुई:"
+
+#: .\django_blogs\templates\django_blogs\post.html:10
+msgid "Post text:"
+msgstr "पाठ पोस्ट करें:"
+
+#: .\django_blogs\templates\django_blogs\post.html:11
+msgid "Comments:"
+msgstr "टिप्पणियाँ:"
+
+#: .\django_blogs\templates\django_blogs\post.html:16
+msgid "This comment was posted by"
+msgstr "इस टिप्पणी के द्वारा पोस्ट किया गया था"
+
+#: .\django_blogs\templates\django_blogs\post.html:18
+msgid "on"
+msgstr "पर"
+
+#: .\django_blogs\templates\django_blogs\post.html:25
+msgid "There are no comments yet."
+msgstr "अब तक कोई टिप्पणी नहीं है।"
+
+#: .\django_blogs\templates\django_blogs\post.html:29
+msgid "Add a comment"
+msgstr "एक टिप्पणी जोड़े"
+
+#: .\django_blogs\templates\django_blogs\user_profile.html:6
+msgid "Username:"
+msgstr "उपयोगकर्ता नाम:"
+
+#: .\django_blogs\templates\django_blogs\user_profile.html:7
+msgid "Posts written by"
+msgstr "के द्वारा लिखे गए पोस्ट"
+
+#: .\django_blogs\templates\django_blogs\user_profile.html:14
+msgid "This user hasn't written any posts yet."
+msgstr "इस उपयोगकर्ता ने अभी तक कोई पोस्ट नहीं लिखा है।"
+
+#: .\django_blogs\templates\django_blogs\user_profile.html:17
+msgid "This user joined on"
+msgstr "यह उपयोगकर्ता शामिल हो गया"
+
+#: .\django_blogs\templates\django_blogs\user_profile.html:18
+msgid "Last seen(last logged in) on"
+msgstr "अंतिम बार (अंतिम लॉग इन) पर देखा गया"
+
+#: .\django_blogs\templates\django_blogs\user_profile.html:27
+msgid "About this user"
+msgstr "इस उपयोगकर्ता के बारे में"
+
+#: .\templates\404.html:6
+msgid "The item you requested is not available. (404)"
+msgstr "आपके द्वारा अनुरोधित आइटम उपलब्ध नहीं है। (404)"
+
+#: .\templates\500.html:6
+msgid "There has been an internal error on the server. (500)"
+msgstr "सर्वर पर आंतरिक त्रुटि हुई है। (500)"
+
+#: .\users\templates\registration\acc_active_email.html:4
+msgid "Hey there"
+msgstr "सुनो"
+
+#: .\users\templates\registration\acc_active_email.html:5
+msgid "To confirm your registration please click on the following link:"
+msgstr "अपने पंजीकरण की पुष्टि के लिए कृपया निम्न लिंक पर क्लिक करें:"
+
+#: .\users\templates\registration\invalid_token.html:6
+msgid "Sorry, but the activation link was invalid."
+msgstr "क्षमा करें, लेकिन सक्रियण लिंक अमान्य था।"
+
+#: .\users\templates\registration\logged_out.html:6
+msgid "You have been logged out. Thank you for visting!"
+msgstr "आप लॉग आउट हो चुके हैं। आने के लिए धन्यवाद!"
+
+#: .\users\templates\registration\login.html:6
+msgid "Login to your blog account"
+msgstr "अपने ब्लॉग खाते में लॉगिन करें"
+
+#: .\users\templates\registration\login.html:20
+#: .\users\templates\registration\password_reset_form.html:6
+msgid "Forgot your password?"
+msgstr "क्या आप अपना पासवर्ड भूल गए?"
+
+#: .\users\templates\registration\login.html:21
+msgid "Click here to reset it!"
+msgstr "इसे रीसेट करने के लिए यहां क्लिक करें!"
+
+#: .\users\templates\registration\password_reset_complete.html:7
+msgid "You have successfully reseted your password. You can "
+msgstr "आपने अपना पासवर्ड सफलतापूर्वक रीसेट कर दिया है। आप ऐसा कर सकते हैं"
+
+#: .\users\templates\registration\password_reset_complete.html:8
+msgid "log in"
+msgstr "लॉग इन करें"
+
+#: .\users\templates\registration\password_reset_complete.html:8
+msgid "now!"
+msgstr "अभी!"
+
+#: .\users\templates\registration\password_reset_confirm.html:7
+msgid "Change password"
+msgstr "पासवर्ड बदलें"
+
+#: .\users\templates\registration\password_reset_confirm.html:17
+msgid "Reset password"
+msgstr "पासवर्ड रीसेट"
+
+#: .\users\templates\registration\password_reset_email.html:4
+msgid "Hi there"
+msgstr "नमस्ते"
+
+#: .\users\templates\registration\password_reset_email.html:5
+msgid "To reset your password, click the link below:"
+msgstr "अपना पासवर्ड रीसेट करने के लिए, नीचे दिए गए लिंक पर क्लिक करें:"
+
+#: .\users\templates\registration\password_reset_form.html:14
+msgid "Send password reset email"
+msgstr "पासवर्ड रीसेट ईमेल भेजें"
+
+#: .\users\templates\registration\password_reset_subject.txt:3
+msgid "Reset your blog password"
+msgstr "अपना ब्लॉग पासवर्ड रीसेट करें"
+
+#, fuzzy
+#~| msgid "Hi,"
+#~ msgid "Hi"
+#~ msgstr "नमस्ते,"

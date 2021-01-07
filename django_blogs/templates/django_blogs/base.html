@@ -1,7 +1,7 @@
-{% load bootstrap4 %}
+{% load i18n bootstrap4 %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
     <!--Head-->
 
@@ -10,7 +10,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1", 
             shrink-to-fit="no">
 
-        <title>Django blog</title>
+        <title>{% trans "Blog" %}</title>
 
         {% bootstrap_css %}
         {% bootstrap_javascript jquery='full' %}
@@ -24,7 +24,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-light mb-4 border">
             <!--Link to home page-->
             <a class="navbar-brand" href="{% url 'django_blogs:index' %}">
-                Django blog</a>
+                {% trans "Blog" %}</a>
 
             <!--Button to toggle the navbar.-->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
@@ -41,7 +41,7 @@
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'django_blogs:new_post' %}">
-                            Create a post</a>
+                            {% trans "Create a post" %}</a>
                     </li>
                 </ul>
                 <!--End of 1st list-->
@@ -55,30 +55,30 @@
                 <ul class="navbar-nav mr-auto">
                     {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <span class="navbar-text">Hi, {{ user.username }}!</span>
+                        <span class="navbar-text">{% trans "Hi," %} {{ user.username }}!</span>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'users:logout' %}">Log out</a>
+                        <a class="nav-link" href="{% url 'users:logout' %}">{% trans "Log out" %}</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'django_blogs:user_profile' user.username %}">
-                            Profile</a>
+                            {% trans "Profile" %}</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'django_blogs:explore' %}">
-                            Explore</a>
+                            {% trans "Explore" %}</a>
                     </li>
                     {% else %}
                     <li class="nav-item">
-                        <span class="navbar-text">Hi! Welcome!</span>
+                        <span class="navbar-text">{% trans "Hi! Welcome!" %}</span>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'users:register' %}">
-                            Register</a>
+                            {% trans "Register" %}</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'users:login' %}">
-                            Log in</a>
+                            {% trans "Log in" %}</a>
                     </li>
                     {% endif %}
                 </ul>

@@ -1,9 +1,9 @@
 {% extends 'django_blogs/base.html' %}
 
-{% load bootstrap4 %}
+{% load i18n bootstrap4 %}
 
 {% block page_header %}
-    <h2>Login to your blog account</h2>
+    <h2>{% trans "Login to your blog account" %}</h2>
 {% endblock page_header %}
 
 {% block content %}
@@ -11,11 +11,12 @@
         {% csrf_token %}
         {% bootstrap_form form %}
         {% buttons %}
-            <button name="submit" class="btn btn-primary">Log in</button>
+            <button name="submit" class="btn btn-primary">{% trans "Log in" %}</button>
         {% endbuttons %}
         <input type="hidden" name="next"
             value="{% url 'django_blogs:index' %}" />
     </form>
 
-    <p>Forgot your password? <a href="{% url 'users:reset_password' %}">Click here to reset it!</a></p>
+    <p>{% trans "Forgot your password?" %} <a href="{% url 'users:reset_password' %}">
+        {% trans "Click here to reset it!" %}</a></p>
 {% endblock content %}

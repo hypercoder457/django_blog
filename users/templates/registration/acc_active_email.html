@@ -1,5 +1,7 @@
+{% load i18n %}
+
 {% autoescape off %}
-    Hello there {{ user.username }}!
-    To confirm your registration please click on the following link:
+    {% trans "Hey there" %} {{ user.username }}!
+    {% trans "To confirm your registration please click on the following link:" %}
     http://{{ domain }}{% url 'users:activate' uidb64=uid token=token %}
 {% endautoescape %}
