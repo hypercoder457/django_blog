@@ -14,8 +14,8 @@
             <li><h3>{% trans "This user hasn't written any posts yet." %}</h3></li>
         {% endfor %}
     </ul>
-    <p>{% trans "This user joined on" %} {% trans user.date_joined %}</p>
-    <p>{% trans "Last seen(last logged in) on" %} {% trans user.last_login %}</p>
+    <p>{% trans "This user joined on" %} {{ user.date_joined }}</p>
+    <p>{% trans "Last seen(last logged in) on" %} {{ user.last_login }}</p>
     {% if user == request.user %}
         <p><a href="{% url 'django_blogs:edit_profile' user.username %}">{% trans "Edit profile" %}</a></p>
     {% endif %}
