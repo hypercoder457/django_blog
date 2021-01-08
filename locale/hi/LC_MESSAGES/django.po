@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-06 16:33-0500\n"
+"POT-Creation-Date: 2021-01-08 17:48-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,7 +34,7 @@ msgstr "उस उपयोगकर्ता का नाम लिया ग�
 
 #: .\django_blogs\models.py:30
 msgid "Password"
-msgstr ""
+msgstr "कुंजिका"
 
 #: .\django_blogs\models.py:33
 msgid "First name"
@@ -266,6 +266,13 @@ msgstr "सुनो"
 #: .\users\templates\registration\acc_active_email.html:5
 msgid "To confirm your registration please click on the following link:"
 msgstr "अपने पंजीकरण की पुष्टि के लिए कृपया निम्न लिंक पर क्लिक करें:"
+
+#: .\users\templates\registration\email_confirmation.html:6
+msgid ""
+"Please confirm your email to complete your registration. Note, if you don't "
+"see the email in your inbox, check your spam folder. The email might be "
+"there."
+msgstr "कृपया अपना पंजीकरण पूरा करने के लिए अपने ईमेल की पुष्टि करें। ध्यान दें, यदि आप नहीं करते हैं अपने इनबॉक्स में ईमेल देखें, अपना स्पैम फ़ोल्डर देखें। ईमेल हो सकता है वहाँ।"
 
 #: .\users\templates\registration\invalid_token.html:6
 msgid "Sorry, but the activation link was invalid."

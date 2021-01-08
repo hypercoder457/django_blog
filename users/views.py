@@ -1,3 +1,4 @@
+from threading import Thread
 from typing import Union
 
 from django.contrib.auth import login
@@ -14,6 +15,10 @@ from django_blogs.forms import CustomUserCreationForm
 from django_blogs.models import CustomUser
 
 from .tokens import account_activation_token
+
+
+def send_async_email(email: EmailMessage):
+    email.send()
 
 
 def register(request: WSGIRequest) -> HttpResponse:
@@ -51,7 +56,7 @@ def register(request: WSGIRequest) -> HttpResponse:
             )
 
             # Send the email/return a response.
-            email.send()
+            Thread(target=send_async_email, args=(email,)).start()
             return render(request, 'registration/email_confirmation.html')
 
     # Display a blank/invalid form.
