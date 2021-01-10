@@ -28,16 +28,16 @@ class CustomUser(AbstractUser):
     )
 
     password = models.CharField(_('Password'), max_length=128)
-    
+
     first_name = models.CharField(
-        verbose_name=_('First name'), 
-        max_length=150, 
+        verbose_name=_('First name'),
+        max_length=150,
         blank=True
     )
 
     last_name = models.CharField(
-        verbose_name=_('Last name'), 
-        max_length=150, 
+        verbose_name=_('Last name'),
+        max_length=150,
         blank=True
     )
 
