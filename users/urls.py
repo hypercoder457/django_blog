@@ -33,5 +33,6 @@ urlpatterns = [
         success_url=reverse_lazy('users:reset_password_complete')
     ), name='reset_password_confirm'),
     path('reset_password/complete/', auth_views.PasswordResetCompleteView.as_view(),
-         name='reset_password_complete')
+         name='reset_password_complete'),
+    path('delete_account/<pk>/', views.AccountDeleteView.as_view(), name='delete_account')
 ]
