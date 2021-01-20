@@ -18,7 +18,7 @@
     <p>{% trans "Last seen(last logged in) on" %} {{ user.last_login }}</p>
     {% if user == request.user %}
         <p><a href="{% url 'django_blogs:edit_profile' user.username %}">{% trans "Edit profile" %}</a></p>
-        <p><a href="{% url 'users:delete_account' user.pk %}" class="text-danger">Delete account</a></p>
+        <p><a href="{% url 'users:delete_account' user.pk %}" class="text-danger">{% trans "Delete account" %}</a></p>
     {% endif %}
     {% if user.avatar %}
         <img src="{{ user.avatar.url }}" alt="" />
