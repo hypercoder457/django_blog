@@ -167,7 +167,7 @@ def edit_profile(request: WSGIRequest, username: str) -> Union[HttpResponseRedir
 
 
 @login_required
-def explore(request: WSGIRequest):
+def explore(request: WSGIRequest) -> HttpResponse:
     """The explore page.
     Allows users to view other user's profiles
     by direct access from this page."""
