@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-19 22:23-0500\n"
+"POT-Creation-Date: 2021-01-22 16:15-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -173,6 +173,10 @@ msgstr "पोस्ट:"
 #: .\django_blogs\templates\django_blogs\index.html:33
 msgid "There are no posts yet."
 msgstr "अभी तक कोई पद नहीं हैं।"
+
+#: .\django_blogs\templates\django_blogs\index.html:46
+msgid "current"
+msgstr "वर्तमान"
 
 #: .\django_blogs\templates\django_blogs\new_comment.html:6
 msgid "Add a new comment"
