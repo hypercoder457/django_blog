@@ -3,7 +3,7 @@ from typing import Any, Dict, Optional, Union
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.core.handlers.wsgi import WSGIRequest
-from django.db.models import Model
+from django.core.paginator import EmptyPage, Page, PageNotAnInteger, Paginator
 from django.db.models.manager import BaseManager
 from django.http import (Http404, HttpResponse, HttpResponsePermanentRedirect,
                          HttpResponseRedirect)
@@ -26,7 +26,15 @@ def index(request: WSGIRequest) -> HttpResponse:
     This shows all posts as well, with the post title acting as a link to
     a detail page."""
     posts: BaseManager = Post.objects.order_by('date_added')
-    context: Dict[str, BaseManager[Model]] = {'posts': posts}
+    page = request.GET.get('page', 1)
+    paginator = Paginator(posts, 5)
+    try:
+        posts_list = paginator.page(page)
+    except PageNotAnInteger:
+        posts_list = paginator.page(1)
+    except EmptyPage:
+        posts_list = paginator.page(paginator.num_pages)
+    context: Dict[str, Page] = {'posts': posts_list}
     return render(request, 'django_blogs/index.html', context)
 
 
