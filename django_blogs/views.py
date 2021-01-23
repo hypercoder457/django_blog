@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.core.handlers.wsgi import WSGIRequest
 from django.core.paginator import EmptyPage, Page, PageNotAnInteger, Paginator
+from django.db.models import Q
 from django.db.models.manager import BaseManager
 from django.http import (Http404, HttpResponse, HttpResponsePermanentRedirect,
                          HttpResponseRedirect)
@@ -26,6 +27,12 @@ def index(request: WSGIRequest) -> HttpResponse:
     This shows all posts as well, with the post title acting as a link to
     a detail page."""
     posts: BaseManager = Post.objects.order_by('date_added')
+    query = request.GET.get('q')
+    if query:
+        posts = Post.objects.order_by('date_added').filter(
+            Q(title__icontains=query) | Q(body__icontains=query) |
+            Q(owner__first_name__icontains=query) | Q(owner__last_name__icontains=query)
+        )
     page = request.GET.get('page', 1)
     paginator = Paginator(posts, 5)
     try:

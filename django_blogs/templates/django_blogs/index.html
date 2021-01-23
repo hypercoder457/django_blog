@@ -19,9 +19,16 @@
 {% endblock page_header %}
 
 {% block content %}
+    <form method="GET" class="form">
+      <div class="input-field">
+          <input type="text" name="q" value="{% if request.GET.q %}{{ request.GET.q }}{% endif %}" placeholder="Search Here">
+          <button class="btn" type="submit" name="action">Search</button>
+      </div>
+    </form>
+
     <p>{% trans "Posts:" %}</p>
 
-    <ul>
+    <ol>
         {% for post in posts %}
             <li><h3>
                 <p><a href="{% url 'django_blogs:post' post.id %}">{% trans post.title %}</a></p>
@@ -32,28 +39,30 @@
         {% empty %}
             <li><h3>{% trans "There are no posts yet." %}</h3></li>
         {% endfor %}
-    </ul>
+    </ol>
 
     {% if posts.has_other_pages %}
-  <ul class="pagination">
-    {% if posts.has_previous %}
-      <li><a href="?page={{ posts.previous_page_number }}">&laquo;</a></li>
-    {% else %}
-      <li class="disabled"><span>&laquo;</span></li>
+      <ul class="pagination">
+        {% if posts.has_previous %}
+          <li class="active"><a href="?page={{ posts.previous_page_number }}
+            {% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">&laquo;</a></li>
+        {% else %}
+          <li class="disabled"><span>&laquo;</span></li>
+        {% endif %}
+        {% for i in posts.paginator.page_range %}
+          {% if posts.number == i %}
+            <li class="active"><span>{{ i }} <span class="sr-only">({% trans "current" %})</span></span></li>
+          {% else %}
+            <li><a href="?page={{ i }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">{{ i }}</a></li>
+          {% endif %}
+        {% endfor %}
+        {% if posts.has_next %}
+          <li class="active"><a href="?page={{ posts.next_page_number }}
+            {% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">&raquo;</a></li>
+        {% else %}
+          <li class="disabled"><span>&raquo;</span></li>
+        {% endif %}
+      </ul>
     {% endif %}
-    {% for i in posts.paginator.page_range %}
-      {% if posts.number == i %}
-        <li class="active"><span>{{ i }} <span class="sr-only">({% trans "current" %})</span></span></li>
-      {% else %}
-        <li><a href="?page={{ i }}">{{ i }}</a></li>
-      {% endif %}
-    {% endfor %}
-    {% if posts.has_next %}
-      <li><a href="?page={{ posts.next_page_number }}">&raquo;</a></li>
-    {% else %}
-      <li class="disabled"><span>&raquo;</span></li>
-    {% endif %}
-  </ul>
-{% endif %}
 {% endblock content %}
 
