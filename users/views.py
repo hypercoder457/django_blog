@@ -16,6 +16,7 @@ from django.views.generic import DeleteView
 from django_blogs.forms import CustomUserCreationForm
 from django_blogs.models import CustomUser
 
+from .forms import VerifyEmailForm
 from .tokens import account_activation_token
 
 
@@ -98,3 +99,35 @@ class AccountDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
     def test_func(self) -> Optional[bool]:
         return self.get_object() == self.request.user
+
+
+def forgot_username(request: WSGIRequest) -> HttpResponse:
+    if request.method != 'POST':
+        form = VerifyEmailForm()
+    else:
+        form = VerifyEmailForm(data=request.POST)
+        if form.is_valid():
+            try:
+                user = get_object_or_404(
+                    CustomUser, email=form.cleaned_data['email'])
+            except Http404:
+                user = None
+                context = {
+                    'error_message': 'A user with that email does not exist.'}
+                return render(request, 'registration/forgot_username.html', context)
+            if user is not None:
+                site = get_current_site(request)
+                context = {'username': user.username, 'domain': site.domain}
+                message = render_to_string(
+                    'registration/forgot_username_email.html', context)
+                subject = 'Username for your blog account.'
+                email = EmailMessage(
+                    subject,
+                    message,
+                    to=[form.cleaned_data['email']]
+                )
+                Thread(target=send_async_email, args=[email]).start()
+                return render(request, 'registration/email_sent.html', 
+                    {'email': form.cleaned_data['email']})
+    context = {'form': form}
+    return render(request, 'registration/forgot_username.html', context)
