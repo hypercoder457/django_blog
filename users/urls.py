@@ -34,6 +34,7 @@ urlpatterns = [
     ), name='reset_password_confirm'),
     path('reset_password/complete/', auth_views.PasswordResetCompleteView.as_view(),
          name='reset_password_complete'),
-    path('delete_account/<pk>/', views.AccountDeleteView.as_view(), name='delete_account'),
+    path('delete_account/<pk>/',
+         views.AccountDeleteView.as_view(), name='delete_account'),
     path('forgot_username/', views.forgot_username, name='forgot_username'),
 ]

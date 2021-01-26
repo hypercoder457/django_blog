@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-22 16:15-0500\n"
+"POT-Creation-Date: 2021-01-26 11:11-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -166,15 +166,15 @@ msgstr "1. एक पद बनाना।"
 msgid "2. Now users can add, update, and delete comments on your posts!"
 msgstr "2. अब उपयोगकर्ता आपके पोस्ट पर टिप्पणियों को जोड़, अपडेट और हटा सकते हैं!"
 
-#: .\django_blogs\templates\django_blogs\index.html:22
+#: .\django_blogs\templates\django_blogs\index.html:29
 msgid "Posts:"
 msgstr "पोस्ट:"
 
-#: .\django_blogs\templates\django_blogs\index.html:33
+#: .\django_blogs\templates\django_blogs\index.html:40
 msgid "There are no posts yet."
 msgstr "अभी तक कोई पद नहीं हैं।"
 
-#: .\django_blogs\templates\django_blogs\index.html:46
+#: .\django_blogs\templates\django_blogs\index.html:54
 msgid "current"
 msgstr "वर्तमान"
 
@@ -342,6 +342,22 @@ msgstr "पासवर्ड रीसेट ईमेल भेजें"
 #: .\users\templates\registration\password_reset_subject.txt:3
 msgid "Reset your blog password"
 msgstr "अपना ब्लॉग पासवर्ड रीसेट करें"
+
+#: .\users\views.py:43
+#, fuzzy
+#| msgid "Login to your blog account"
+msgid "Activate your blog account."
+msgstr "अपने ब्लॉग खाते में लॉगिन करें"
+
+#: .\users\views.py:117
+msgid "A user with that email does not exist."
+msgstr "उस ईमेल वाला उपयोगकर्ता मौजूद नहीं है।"
+
+#: .\users\views.py:124
+#, fuzzy
+#| msgid "Login to your blog account"
+msgid "Username for your blog account."
+msgstr "अपने ब्लॉग खाते में लॉगिन करें"
 
 #, fuzzy
 #~| msgid "Hi,"

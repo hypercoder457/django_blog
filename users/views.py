@@ -12,6 +12,7 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.template.loader import render_to_string
 from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
+from django.utils.translation import ugettext_lazy as _
 from django.views.generic import DeleteView
 from django_blogs.forms import CustomUserCreationForm
 from django_blogs.models import CustomUser
@@ -39,7 +40,7 @@ def register(request: WSGIRequest) -> HttpResponse:
             new_user.save()
             # Get the current site.
             current_site = get_current_site(request)
-            mail_subject = 'Activate your blog account.'  # Email subject.
+            mail_subject = _('Activate your blog account.')  # Email subject.
 
             # render a message with the `render_to_string` function and assign it to the variable message.
             message = render_to_string('registration/acc_active_email.html', {
@@ -59,7 +60,7 @@ def register(request: WSGIRequest) -> HttpResponse:
             )
 
             # Send the email/return a response.
-            Thread(target=send_async_email, args=(email,)).start()
+            Thread(target=send_async_email, args=[email]).start()
             return render(request, 'registration/email_confirmation.html')
 
     # Display a blank/invalid form.
@@ -113,21 +114,21 @@ def forgot_username(request: WSGIRequest) -> HttpResponse:
             except Http404:
                 user = None
                 context = {
-                    'error_message': 'A user with that email does not exist.'}
+                    'error_message': _('A user with that email does not exist.')}
                 return render(request, 'registration/forgot_username.html', context)
             if user is not None:
                 site = get_current_site(request)
                 context = {'username': user.username, 'domain': site.domain}
                 message = render_to_string(
                     'registration/forgot_username_email.html', context)
-                subject = 'Username for your blog account.'
+                subject = _('Username for your blog account.')
                 email = EmailMessage(
                     subject,
                     message,
                     to=[form.cleaned_data['email']]
                 )
                 Thread(target=send_async_email, args=[email]).start()
-                return render(request, 'registration/email_sent.html', 
-                    {'email': form.cleaned_data['email']})
+                return render(request, 'registration/email_sent.html',
+                              {'email': form.cleaned_data['email']})
     context = {'form': form}
     return render(request, 'registration/forgot_username.html', context)
